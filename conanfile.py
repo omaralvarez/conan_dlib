@@ -8,12 +8,12 @@ class DlibConan(ConanFile):
     url = "https://github.com/omaralvarez/conan_dlib"
     description = "Dlib is a modern C++ toolkit containing machine learning algorithms and tools for creating complex software in C++ to solve real world problems. See http://dlib.net for the main project documentation and API reference."
     settings = "os", "compiler", "build_type", "arch", "os_build", "arch_build"
-    options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "shared": [True, False]}
-    default_options = "iso_cpp_only=False", "enable_gif=True", "enable_png=True", "enable_jpeg=True", "no_gui_support=False", "enable_stack_trace=False", "link_with_sqlite=True", "enable_asserts=False", "shared=False"
+    options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "enable_sse2" : [True, False], "enable_sse4" : [True, False], "enable_avx" : [True, False], "shared": [True, False]}
+    default_options = "iso_cpp_only=False", "enable_gif=True", "enable_png=True", "enable_jpeg=True", "no_gui_support=False", "enable_stack_trace=False", "link_with_sqlite=True", "enable_asserts=False", "enable_avx=False", "enable_sse4=False", "enable_sse2=True", "shared=False"
     generators = "cmake"
 
     def source(self):
-        self.run("git clone https://github.com/davisking/dlib.git")
+        self.run("git clone --branch v19.8 --depth 1 https://github.com/davisking/dlib.git")
         self.run("pwd")
         self.run("ls")
         tools.replace_in_file("dlib/dlib/CMakeLists.txt", 'project(dlib)', '''project(dlib)
@@ -46,6 +46,9 @@ conan_basic_setup()
             "DLIB_NO_GUI_SUPPORT": self.options.no_gui_support,
             "DLIB_ENABLE_STACK_TRACE": self.options.enable_stack_trace,
             "DLIB_ENABLE_ASSERTS": self.options.enable_asserts,
+            "USE_SSE2_INSTRUCTIONS": self.options.enable_sse2,
+            "USE_SSE4_INSTRUCTIONS": self.options.enable_sse4,
+            "USE_AVX_INSTRUCTIONS": self.options.enable_avx,
             "BUILD_SHARED_LIBS": self.options.shared
         }
         cmake.configure(source_folder="dlib", defs=defs)
@@ -55,8 +58,6 @@ conan_basic_setup()
         self.copy("*.h", dst="include/dlib", src="dlib/dlib")
         self.copy("config.h", dst="include/dlib", src="dlib")
         self.copy("revision.h", dst="include/dlib", src="dlib")
-        self.copy("*.lib", dst="lib", src="dlib/Release")
-        self.copy("*.lib", dst="lib", src="dlib/Debug")
         self.copy("*.lib", dst="lib", src="dlib/lib")
         self.copy("*.so*", dst="lib", src="dlib/lib")
         self.copy("*.a", dst="lib", src="dlib/lib")
