@@ -14,8 +14,6 @@ class DlibConan(ConanFile):
 
     def source(self):
         self.run("git clone --branch v19.8 --depth 1 https://github.com/davisking/dlib.git")
-        self.run("pwd")
-        self.run("ls")
         tools.replace_in_file("dlib/dlib/CMakeLists.txt", 'project(dlib)', '''project(dlib)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
