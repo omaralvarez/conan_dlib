@@ -5,7 +5,7 @@ env:
      - CONAN_USERNAME: "omaralvarez"
      - CONAN_LOGIN_USERNAME: "omaralvarez"
      - CONAN_CHANNEL: "testing"
-     - CONAN_UPLOAD: "UPLOAD_URL"
+     - CONAN_UPLOAD: "https://api.bintray.com/conan/omaralvarez/public-conan"
 
 linux: &linux
    os: linux
