@@ -40,7 +40,6 @@
 #include <dlib/dnn.h>
 #include <dlib/data_io.h>
 #include <dlib/image_processing.h>
-#include <dlib/gui_widgets.h>
 
 
 using namespace std;
@@ -74,7 +73,6 @@ int main(int argc, char** argv) try
     net_type net;
     deserialize(argv[1]) >> net;  
 
-    image_window win;
     for (int i = 2; i < argc; ++i)
     {
         matrix<rgb_pixel> img;
@@ -91,13 +89,6 @@ int main(int argc, char** argv) try
         // the same size.  To avoid this requirement on images being the same size we
         // process them individually in this example.
         auto dets = net(img);
-        win.clear_overlay();
-        win.set_image(img);
-        for (auto&& d : dets)
-            win.add_overlay(d);
-
-        cout << "Hit enter to process the next image." << endl;
-        cin.get();
     }
 }
 catch(std::exception& e)
