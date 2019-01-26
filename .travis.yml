@@ -1,11 +1,12 @@
 
 env:
    global:
-     - CONAN_REFERENCE: "dlib/19.16.0"
+     - CONAN_REFERENCE: "dlib/19.16.0@a-alaa/stable"
      - CONAN_USERNAME: "a-alaa"
      - CONAN_LOGIN_USERNAME: "a-alaa"
      - CONAN_CHANNEL: "testing"
      - CONAN_UPLOAD: "https://api.bintray.com/conan/a-alaa/public-conan"
+     - UPLOAD_URL: "https://api.bintray.com/conan/a-alaa/public-conan"
 
 linux: &linux
    os: linux
@@ -21,21 +22,15 @@ matrix:
    include:
 
       - <<: *linux
-        env: CONAN_GCC_VERSIONS=4.9 CONAN_DOCKER_IMAGE=lasote/conangcc49
-
-      - <<: *linux
-        env: CONAN_GCC_VERSIONS=5 CONAN_DOCKER_IMAGE=lasote/conangcc5
-
-      - <<: *linux
         env: CONAN_GCC_VERSIONS=6 CONAN_DOCKER_IMAGE=lasote/conangcc6
 
       - <<: *linux
         env: CONAN_GCC_VERSIONS=7 CONAN_DOCKER_IMAGE=lasote/conangcc7
 
 install:
-  - chmod +x .travis/install.sh
-  - ./.travis/install.sh
+  - chmod +x .ci/travis/install.sh
+  - ./.ci/travis/install.sh
 
 script:
-  - chmod +x .travis/run.sh
-  - ./.travis/run.sh
+  - chmod +x .ci/travis/run.sh
+  - ./.ci/travis/run.sh

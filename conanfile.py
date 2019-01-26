@@ -22,7 +22,7 @@ conan_basic_setup()
     def requirements(self):
         if not self.options.iso_cpp_only:
             if self.options.enable_gif:
-                self.requires("giflib/5.1.3@bincrafters/stable")
+                self.requires("giflib/5.1.4@bincrafters/stable")
 
             if self.options.enable_png:
                 self.requires("libpng/1.6.34@bincrafters/stable")
