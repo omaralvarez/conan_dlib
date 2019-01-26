@@ -12,4 +12,4 @@ fi
 
 
 # Download dependencies, build, test and create package
-- conan create . a-alaa/testing
+conan create . a-alaa/testing
