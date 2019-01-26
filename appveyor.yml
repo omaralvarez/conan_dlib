@@ -6,8 +6,8 @@ environment:
     PYTHON_ARCH: "32"
 
     CONAN_REFERENCE: "dlib/19.8.0"
-    CONAN_USERNAME: "omaralvarez"
-    CONAN_LOGIN_USERNAME: "omaralvarez"
+    CONAN_USERNAME: "a-alaa"
+    CONAN_LOGIN_USERNAME: "a-alaa"
     CONAN_CHANNEL: "testing"
     CONAN_UPLOAD: "https://api.bintray.com/conan/a-alaa/public-conan"
 
