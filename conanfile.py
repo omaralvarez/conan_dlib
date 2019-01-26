@@ -5,7 +5,7 @@ class DlibConan(ConanFile):
     name = "dlib"
     version = "19.8.0"
     license = "GPLv3"
-    url = "https://github.com/omaralvarez/conan_dlib"
+    url = "https://github.com/a-alaa/conan_dlib"
     description = "Dlib is a modern C++ toolkit containing machine learning algorithms and tools for creating complex software in C++ to solve real world problems. See http://dlib.net for the main project documentation and API reference."
     settings = "os", "compiler", "build_type", "arch"
     options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "enable_cuda" : [True, False], "enable_blas" : [True, False], "enable_lapack" : [True, False], "enable_sse2" : [True, False], "enable_sse4" : [True, False], "enable_avx" : [True, False], "shared": [True, False]}
