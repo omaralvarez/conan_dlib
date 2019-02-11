@@ -13,7 +13,7 @@ class DlibConan(ConanFile):
     generators = "cmake"
     
     def source(self):
-        self.run("git clone --branch v19.16 --depth 1 https://github.com/davisking/dlib.git && rm dlib/.git -rf")
+        self.run("git clone --branch v19.16 --depth 1 https://github.com/davisking/dlib.git")
         tools.replace_in_file("dlib/dlib/CMakeLists.txt", 'project(dlib)', '''project(dlib)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
