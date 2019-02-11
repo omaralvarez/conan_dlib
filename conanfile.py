@@ -11,10 +11,9 @@ class DlibConan(ConanFile):
     options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "enable_cuda" : [True, False], "enable_blas" : [True, False], "enable_lapack" : [True, False], "enable_sse2" : [True, False], "enable_sse4" : [True, False], "enable_avx" : [True, False], "shared": [True, False]}
     default_options = "iso_cpp_only=False", "enable_gif=True", "enable_png=True", "enable_jpeg=True", "no_gui_support=True", "enable_stack_trace=False", "link_with_sqlite=True", "enable_asserts=False", "enable_cuda=False", "enable_blas=False", "enable_lapack=False", "enable_avx=False", "enable_sse4=False", "enable_sse2=True", "shared=False"
     generators = "cmake"
-    copy_source_to_build_dir = False
     
     def source(self):
-        self.run("git clone --branch v19.16 --depth 1 https://github.com/davisking/dlib.git")
+        self.run("git clone --branch v19.16 --depth 1 https://github.com/davisking/dlib.git && rm dlib/.git -rf")
         tools.replace_in_file("dlib/dlib/CMakeLists.txt", 'project(dlib)', '''project(dlib)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
