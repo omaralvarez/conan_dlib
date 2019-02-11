@@ -33,8 +33,12 @@ conan_basic_setup()
             if self.options.link_with_sqlite:
                 self.requires("sqlite3/3.21.0@bincrafters/stable")
 
-            if self.options.enable_lapack or self.options.enable_blas:
+            if self.options.enable_lapack:
                 self.requires("lapack/3.7.1@conan/stable")
+
+            if self.options.enable_blas:
+                self.requires("openblas/0.2.20@conan/stable")
+
 
     def build(self):
         cmake = CMake(self)
