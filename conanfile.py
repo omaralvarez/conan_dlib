@@ -40,7 +40,7 @@ conan_basic_setup()
                 self.requires("openblas/0.2.20@conan/stable")
 
             if self.options.enable_mkl_fft:
-                raise Exception("MKL dependency management is unsupported yet!")
+                self.requires("intel_media_sdk/2018R2@bincrafters/stable")
 
     def build(self):
         cmake = CMake(self)
