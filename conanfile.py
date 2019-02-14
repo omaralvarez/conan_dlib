@@ -8,8 +8,8 @@ class DlibConan(ConanFile):
     url = "https://github.com/a-alaa/conan_dlib"
     description = "Dlib is a modern C++ toolkit containing machine learning algorithms and tools for creating complex software in C++ to solve real world problems. See http://dlib.net for the main project documentation and API reference."
     settings = "os", "compiler", "build_type", "arch"
-    options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "enable_cuda" : [True, False], "enable_blas" : [True, False], "enable_lapack" : [True, False], "enable_sse2" : [True, False], "enable_sse4" : [True, False], "enable_avx" : [True, False], "shared": [True, False]}
-    default_options = "iso_cpp_only=False", "enable_gif=True", "enable_png=True", "enable_jpeg=True", "no_gui_support=True", "enable_stack_trace=False", "link_with_sqlite=True", "enable_asserts=False", "enable_cuda=False", "enable_blas=False", "enable_lapack=False", "enable_avx=False", "enable_sse4=False", "enable_sse2=True", "shared=False"
+    options = {"iso_cpp_only" : [True, False], "enable_gif" : [True, False], "enable_png" : [True, False], "enable_jpeg" : [True, False], "no_gui_support" : [True, False], "enable_stack_trace" : [True, False], "link_with_sqlite" : [True, False], "enable_asserts" : [True, False], "enable_cuda" : [True, False], "enable_blas" : [True, False], "enable_lapack" : [True, False], "enable_sse2" : [True, False], "enable_sse4" : [True, False], "enable_avx" : [True, False], "enable_mkl_fft": [True, False], "shared": [True, False]}
+    default_options = "iso_cpp_only=False", "enable_gif=True", "enable_png=True", "enable_jpeg=True", "no_gui_support=True", "enable_stack_trace=False", "link_with_sqlite=True", "enable_asserts=False", "enable_cuda=False", "enable_blas=False", "enable_lapack=False", "enable_avx=False", "enable_sse4=False", "enable_sse2=True", "enable_mkl_fft=False", "shared=False"
     generators = "cmake"
     
     def source(self):
@@ -38,9 +38,6 @@ conan_basic_setup()
 
             if self.options.enable_blas:
                 self.requires("openblas/0.2.20@conan/stable")
-
-            if self.options.enable_mkl_fft:
-                self.requires("intel_media_sdk/2018R2@bincrafters/stable")
 
     def build(self):
         cmake = CMake(self)
