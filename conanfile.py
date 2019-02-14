@@ -39,6 +39,8 @@ conan_basic_setup()
             if self.options.enable_blas:
                 self.requires("openblas/0.2.20@conan/stable")
 
+            if self.options.enable_mkl_fft:
+                raise Exception("MKL dependency management is unsupported yet!")
 
     def build(self):
         cmake = CMake(self)
@@ -54,6 +56,7 @@ conan_basic_setup()
             "DLIB_USE_CUDA": self.options.enable_cuda,
             "DLIB_USE_BLAS": self.options.enable_blas,
             "DLIB_USE_LAPACK": self.options.enable_lapack,
+            "DLIB_USE_MKL_FFT": self.options.enable_mkl_fft,
             "USE_SSE2_INSTRUCTIONS": self.options.enable_sse2,
             "USE_SSE4_INSTRUCTIONS": self.options.enable_sse4,
             "USE_AVX_INSTRUCTIONS": self.options.enable_avx,
