@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/A-Alaa/conan_dlib.svg?branch=master)](https://travis-ci.org/A-Alaa/conan_dlib) [![Build status](https://ci.appveyor.com/api/projects/status/rls3fu8x6v0o5dr4?svg=true)](https://ci.appveyor.com/project/A-Alaa/conan-dlib)
+[![Build Status](https://travis-ci.org/omaralvarez/conan_dlib.svg?branch=master)](https://travis-ci.org/omaralvarez/conan_dlib)
+
 # conan_dlib
 
 [Conan.io](https://conan.io) package for [dlib](https://github.com/davisking/dlib) library
@@ -12,7 +13,7 @@
 
 ### Basic setup
 
-    $ conan install dlib/19.16.0@a-alaa/stable
+    $ conan install dlib/19.16.0@omaralvarez/stable
 
 ### Package basic test
     $ conan test_package
@@ -24,7 +25,7 @@
 * A sample from `conanfile.txt` in the root directory:
 ```
 [requires]
-dlib/19.16.0@a-alaa/stable
+dlib/19.16.0@omaralvarez/stable
 ...
 
 [generators]
@@ -58,7 +59,7 @@ target_link_libraries(example CONAN_PKG::dlib)
 
 * First, add new remote pointing to the repository: 
 ```
-conan remote add a-alaa https://api.bintray.com/conan/a-alaa/public-conan
+conan remote add omaralvarez https://api.bintray.com/conan/omaralvarez/public-conan
 ```
 * Change directory to the build location and run Conan installation:
 ```shell
