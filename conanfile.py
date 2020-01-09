@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class DlibConan(ConanFile):
     name = "dlib"
-    version = "19.16.0"
+    version = "19.17"
     license = "GPLv3"
     url = "https://github.com/a-alaa/conan_dlib"
     description = "Dlib is a modern C++ toolkit containing machine learning algorithms and tools for creating complex software in C++ to solve real world problems. See http://dlib.net for the main project documentation and API reference."
@@ -13,7 +13,7 @@ class DlibConan(ConanFile):
     generators = "cmake"
     
     def source(self):
-        self.run("git clone --branch v19.16 --depth 1 https://github.com/davisking/dlib.git")
+        self.run("git clone --branch v" + self.version + " --depth 1 https://github.com/davisking/dlib.git")
         tools.replace_in_file("dlib/dlib/CMakeLists.txt", 'project(dlib)', '''project(dlib)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
