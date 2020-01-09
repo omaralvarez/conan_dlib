@@ -1,4 +1,4 @@
-[![Download](https://api.bintray.com/packages/omaralvarez/public-conan/dlib%3Aomaralvarez/images/download.svg)](https://bintray.com/omaralvarez/public-conan/dlib%3Aomaralvarez/_latestVersion)[![Build Status](https://travis-ci.org/omaralvarez/conan_dlib.svg?branch=master)](https://travis-ci.org/omaralvarez/conan_dlib)
+[![Download](https://api.bintray.com/packages/omaralvarez/public-conan/dlib%3Aomaralvarez/images/download.svg)](https://bintray.com/omaralvarez/public-conan/dlib%3Aomaralvarez/_latestVersion) [![Build Status](https://travis-ci.org/omaralvarez/conan_dlib.svg?branch=master)](https://travis-ci.org/omaralvarez/conan_dlib)
 
 # conan_dlib
 
