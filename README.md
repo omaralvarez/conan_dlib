@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/omaralvarez/conan_dlib.svg?branch=master)](https://travis-ci.org/omaralvarez/conan_dlib)
+[![Download](https://api.bintray.com/packages/omaralvarez/public-conan/dlib%3Aomaralvarez/images/download.svg)](https://bintray.com/omaralvarez/public-conan/dlib%3Aomaralvarez/_latestVersion)[![Build Status](https://travis-ci.org/omaralvarez/conan_dlib.svg?branch=master)](https://travis-ci.org/omaralvarez/conan_dlib)
 
 # conan_dlib
 
@@ -13,7 +13,7 @@
 
 ### Basic setup
 
-    $ conan install dlib/19.16.0@omaralvarez/stable
+    $ conan install dlib/19.19@omaralvarez/stable
 
 ### Package basic test
     $ conan test_package
@@ -25,7 +25,7 @@
 * A sample from `conanfile.txt` in the root directory:
 ```
 [requires]
-dlib/19.16.0@omaralvarez/stable
+dlib/19.19@omaralvarez/stable
 ...
 
 [generators]
